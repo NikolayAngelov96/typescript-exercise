@@ -15,34 +15,47 @@ let daysToMars: number = hoursToMars / 24;
 
 // Part 3: Create a Function ("getDaysToLocation")
 
-function getDaysToLocation(kilometersAway: number): number {
-  const milesToLocation: number = kilometersAway * milesPerKilometer;
-  const hoursToLocation: number = milesToLocation / speedMph;
-  const daysToLocation: number = hoursToLocation / 24;
-
-  return daysToLocation;
-}
-
 // Move your output statement from part 2 here. Update the template literal to call
 // the function and print the outputs for a Mars trip and a moon trip.
 
+// Part 4: Create a Spacecraft Class
+
+class Spacecraft {
+  public milesPerKilometer: number = 0.621;
+  public name: string;
+  public speedMph: number;
+
+  constructor(name: string, speedMph: number) {
+    this.name = name;
+    this.speedMph = speedMph;
+  }
+
+  getDaysToLocation(kilometersAway: number): number {
+    const milesToLocation: number = kilometersAway * this.milesPerKilometer;
+    const hoursToLocation: number = milesToLocation / this.speedMph;
+    const daysToLocation: number = hoursToLocation / 24;
+
+    return daysToLocation;
+  }
+}
+
+// Create an instance of the class here:
+
+let spaceShuttle = new Spacecraft("Determination", 17500);
+
+// Move your output statements from part 3 here. Update the template literals use the
+// instance of the class.
+
 console.log(
-  `${spacecraftName} would take ${getDaysToLocation(
+  `${spaceShuttle.name} would take ${spaceShuttle.getDaysToLocation(
     kilometersToMars
   )} days to get to Mars.`
 );
 console.log(
-  `${spacecraftName} would take ${getDaysToLocation(
+  `${spaceShuttle.name} would take ${spaceShuttle.getDaysToLocation(
     kilometersToTheMoon
   )} days to get to the Moon.`
 );
-
-// Part 4: Create a Spacecraft Class
-
-// Create an instance of the class here:
-
-// Move your output statements from part 3 here. Update the template literals use the
-// instance of the class.
 
 // Part 5: Export and Import the SpaceLocation Class
 // Add the required import statement BEFORE the part 1 content.
