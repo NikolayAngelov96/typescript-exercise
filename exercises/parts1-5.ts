@@ -7,7 +7,13 @@ let milesPerKilometer: number = 0.621;
 
 // Part 2: Print Days to Mars
 
+let milesToMars: number = kilometersToMars * milesPerKilometer;
+let hoursToMars: number = milesToMars / speedMph;
+let daysToMars: number = hoursToMars / 24;
+
 // Code an output statement here (use a template literal):
+
+console.log(`${spacecraftName} would take ${daysToMars} days to get to Mars.`);
 
 // Part 3: Create a Function ("getDaysToLocation")
 
